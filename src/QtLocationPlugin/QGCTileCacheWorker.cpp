@@ -1156,7 +1156,7 @@ QGCCacheWorker::_testInternet()
         TCP connection to 8.8.8.8:53 on Android and do the lookup/connect on the
         other platforms.
     */
-#if defined(__android__)
+#if 1 //defined(__android__)
     QTcpSocket socket;
     socket.connectToHost("8.8.8.8", 53);
     if (socket.waitForConnected(2000)) {
@@ -1177,7 +1177,7 @@ QGCCacheWorker::_testInternet()
 void
 QGCCacheWorker::_lookupReady(QHostInfo info)
 {
-#if defined(__android__)
+#if 1 //defined(__android__)
     Q_UNUSED(info);
 #else
     _hostLookupID = 0;
