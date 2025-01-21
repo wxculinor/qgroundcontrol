@@ -135,3 +135,11 @@ QString VWorldSatMapProvider::_getURL(const int x, const int y, const int zoom, 
             .arg(_getServerNum(x, y, 4)).arg(key, _versionBingMaps, _language);
     }
 }
+
+// fyp
+static const QString maptest = QStringLiteral("https://mapz.oss-cn-beijing.aliyuncs.com/%1/%2/%3.png");
+
+QString SeamapImgSatMapProvider::_getURL(const int x, const int y, const int zoom, QNetworkAccessManager* networkManager) {
+    Q_UNUSED(networkManager)
+    return maptest.arg(zoom).arg(x).arg(y);
+}

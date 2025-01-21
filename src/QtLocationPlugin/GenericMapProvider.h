@@ -155,3 +155,16 @@ class VWorldSatMapProvider : public MapProvider {
   private:
     const QString _versionBingMaps = QStringLiteral("563");
 };
+
+//haiͼ  fyp
+class SeamapImgSatMapProvider : public MapProvider {
+    Q_OBJECT
+public:
+    SeamapImgSatMapProvider(QObject* parent = nullptr)
+        : MapProvider(QStringLiteral("www.tiandi.com"), QStringLiteral("jpg"),
+                      AVERAGE_TILE_SIZE, QGeoMapType::SatelliteMapDay, parent) {}
+    QString _getURL(const int x, const int y, const int zoom, QNetworkAccessManager* networkManager) override;
+
+private:
+    const QString _versionBingMaps = QStringLiteral("563");
+};

@@ -72,6 +72,8 @@ UrlFactory::UrlFactory() : _timeout(5 * 1000) {
     _providersTable["Mapbox Bright"]       = new MapboxBrightMapProvider(this);
     _providersTable["Mapbox Custom"]       = new MapboxCustomMapProvider(this);
 
+    _providersTable["Seamap Satellite Map"] = new SeamapImgSatMapProvider(this);  //fyp
+
     //_providersTable["MapQuest Map"] = new MapQuestMapMapProvider(this);
     //_providersTable["MapQuest Sat"] = new MapQuestSatMapProvider(this);
 
