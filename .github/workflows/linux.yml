@@ -25,19 +25,14 @@ jobs:
 
     strategy:
       matrix:
-        BuildType: [Debug, Release]
-        runs-on: [ubuntu-24.04-arm, ubuntu-22.04]
+        BuildType: [Release]
+        runs-on: [ubuntu-22.04-arm]
         include:
-          - runs-on: ubuntu-24.04-arm
+          - runs-on: ubuntu-22.04-arm
             ARTIFACT: QGroundControl-aarch64.AppImage
             PACKAGE: QGroundControl-aarch64
             host: linux_arm64
             arch: linux_gcc_arm64
-          - runs-on: ubuntu-22.04
-            ARTIFACT: QGroundControl-x86_64.AppImage
-            PACKAGE: QGroundControl-x86_64
-            host: linux
-            arch: linux_gcc_64
 
     defaults:
       run:
@@ -63,6 +58,11 @@ jobs:
           chmod a+x ./tools/setup/install-dependencies-debian.sh
           sudo ./tools/setup/install-dependencies-debian.sh
 
+      - name: Setup cmake
+        uses: jwlawson/actions-setup-cmake@v2
+        with:
+          cmake-version: '3.25.x'
+          
       - name: Install Vulkan
         run: |
           sudo apt install -y --quiet libvulkan-dev
