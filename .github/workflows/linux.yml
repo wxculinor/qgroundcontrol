@@ -58,11 +58,6 @@ jobs:
           chmod a+x ./tools/setup/install-dependencies-debian.sh
           sudo ./tools/setup/install-dependencies-debian.sh
 
-      - name: Setup cmake
-        uses: jwlawson/actions-setup-cmake@v2
-        with:
-          cmake-version: '3.25.x'
-          
       - name: Install Vulkan
         run: |
           sudo apt install -y --quiet libvulkan-dev
